@@ -56,6 +56,7 @@ public class Account {
         check_loggedin(un, ps);
         if (this.loggedin == true) {
             System.out.println("Đăng nhập thành công.");
+            this.loggedin = false;
         } else {
             System.out.println("Đăng nhập thất bại!!!!!");
             System.out.println("Bạn đã nhập sai username hoặc password.");
