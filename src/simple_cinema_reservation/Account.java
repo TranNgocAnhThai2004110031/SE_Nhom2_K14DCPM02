@@ -3,7 +3,7 @@ public class Account {
     private String username;
     private int password;
     private String email;
-    private boolean loggedin;
+    private boolean loggedin; 
 
     public static StoredFiles accounts = new StoredFiles("data.json");
 

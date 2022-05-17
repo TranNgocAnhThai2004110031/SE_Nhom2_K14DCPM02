@@ -66,7 +66,7 @@ public class UITerminal {
     public void login_inputs() {
         System.out.print("User Name: ");
         String un = sc.nextLine();
-        System.out.print("Password: ");
+        System.out.print("Password: "); 
         int ps = 0;
         try {
             ps = sc.nextInt();

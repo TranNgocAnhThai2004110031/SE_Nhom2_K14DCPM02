@@ -68,7 +68,7 @@ public class StoredFiles {
         //dạng file json in ra đẹp hơn
         GsonBuilder gsonBuilder = new GsonBuilder(); 
         Gson gson = gsonBuilder.create();
-        
+         
         try(Writer writer = Files.newBufferedWriter(Paths.get("data.json"))){
             gsonBuilder.setPrettyPrinting().create().toJson(list, writer);
             writer.close();
