@@ -54,7 +54,7 @@ public class Account {
 
     public void login(String un, int ps) {
         check_loggedin(un, ps);
-        if (loggedin == true) {
+        if (this.loggedin == true) {
             System.out.println("Đăng nhập thành công.");
         } else {
             System.out.println("Đăng nhập thất bại!!!!!");
@@ -65,6 +65,7 @@ public class Account {
     public void logout() {
         this.username = null;
         this.password = 0;
+        this.loggedin = false;
         System.out.println("Đăng xuất thành công.");
     }
 
@@ -84,12 +85,15 @@ public class Account {
                 System.out.println("Username đã được sử dụng.");
                 System.out.println("Tạo tài khoản thất bại!!!.");
                 return;
-            }
-             else if (email.equals(account.getEmail())) {
+            } else if (email.equals(account.getEmail())) {
                 System.out.println("Email đã được sử dụng.");
                 System.out.println("Tạo tài khoản thất bại!!!.");
                 return;
-            }
+            } 
+            // else if (account.loggedin == true) {
+            //     System.out.println("Bạn phải đăng xuất trước khi tạo tài khoản mới!!!.");
+            //     return;
+            // } 
         }
     }
 

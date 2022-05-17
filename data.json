@@ -46,5 +46,11 @@
     "password": 9999,
     "email": "PPPP@gmail.com",
     "loggedin": false
+  },
+  {
+    "username": "thai",
+    "password": 123,
+    "email": "thai@gmail.com",
+    "loggedin": false
   }
 ]

@@ -1,4 +1,10 @@
 package simple_cinema_reservation;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileWriter;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.io.Reader;
 import java.io.Writer;
 import java.nio.file.Files;
@@ -23,30 +29,6 @@ public class StoredFiles {
     }
 
     public void read(){
-        // File file = new File("data.json");
-        
-        // try {
-        //     InputStream inputStream = new FileInputStream(file);
-        //     InputStreamReader inputStreamReader = new InputStreamReader(inputStream);
-        //     BufferedReader reader = new BufferedReader(inputStreamReader);
-    
-        //     String line = "";
-
-        //     while((line = reader.readLine()) != null){
-        //         System.out.println(line);
-        //     }
-        // } catch (Exception e) {
-        //     e.printStackTrace();
-        // }
-
-        // Gson gson = new Gson();
-        // try(Reader reader = Files.newBufferedReader(Paths.get("data.json"))){
-        //     gson.fromJson(reader, (Type) memory);
-        // }catch (Exception e) {
-        //     e.printStackTrace();
-        // }
-        
-        
         try {
             Gson gson = new Gson();
             
@@ -63,19 +45,45 @@ public class StoredFiles {
         } catch (Exception ex) {
             ex.printStackTrace();
         }
+
+        // read file cách 2
+        // File file = new File("data.json");
+        
+        // try {
+        //     InputStream inputStream = new FileInputStream(file);
+        //     InputStreamReader inputStreamReader = new InputStreamReader(inputStream);
+        //     BufferedReader reader = new BufferedReader(inputStreamReader);
+    
+        //     String line = "";
+
+        //     while((line = reader.readLine()) != null){
+        //         System.out.println(line);
+        //     }
+        // } catch (Exception e) {
+        //     e.printStackTrace();
+        // }
     }    
 
     public void write() {
-        GsonBuilder gsonBuilder = new GsonBuilder(); //dạng file json in ra đẹp hơn
+        //dạng file json in ra đẹp hơn
+        GsonBuilder gsonBuilder = new GsonBuilder(); 
         Gson gson = gsonBuilder.create();
-        // Gson gson = new Gson(); // dạng của thầy
+        
         try(Writer writer = Files.newBufferedWriter(Paths.get("data.json"))){
             gsonBuilder.setPrettyPrinting().create().toJson(list, writer);
-            // gson.toJson(list, writer);
             writer.close();
         }catch (Exception e) {
             e.printStackTrace();
         }
+
+        //  ghi file của thầy
+        // Gson gson = new Gson();
+        // try(FileWriter fileWriter = new FileWriter("data.json")) {
+        //     gson.toJson(list, fileWriter);
+        //     fileWriter.close();
+        // } catch (Exception e) {
+        //     e.printStackTrace();
+        // }
     }
 
     public void update() {
@@ -85,7 +93,6 @@ public class StoredFiles {
     }
 
     public void get_all() {
-        // list.getClass();
         System.out.println(list);
     }    
      
@@ -100,5 +107,8 @@ public class StoredFiles {
                 System.out.println(account1);
             }
         }
+        if (account1 == null) {
+            System.out.println("Không có username hoặc email account bạn cần tìm!!!");
+        } 
     }
 }
